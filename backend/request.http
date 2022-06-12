@@ -1,0 +1,28 @@
+GET http://localhost:5000/admin
+
+###
+GET http://localhost:5000/admin/3
+
+###
+POST http://localhost:5000/admin
+Content-Type: application/json
+
+{
+    "nama":"Palmia",
+    "perioda" :"2015-04-03 14:00:45",
+    "harga":25000,
+    "stok":50
+}
+
+###
+PATCH http://localhost:5000/admin/2
+Content-Type: application/json
+
+{
+    "nama":"Palmia Premium",
+    "perioda" :"2022-04-03 14:00:45",
+    "harga":25000,
+    "stok":50
+}
+###
+DELETE http://localhost:5000/admin/2

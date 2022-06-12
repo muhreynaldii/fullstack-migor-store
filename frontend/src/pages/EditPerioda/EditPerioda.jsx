@@ -20,7 +20,7 @@ function EditPerioda() {
   const updateMinyak = async (e) => {
     e.preventDefault();
     try {
-      await axios.patch(`http://localhost:5000/admin/${id}`, {
+      await axios.patch(`https://localhost:5000/admin/${id}`, {
         nama,
         perioda,
         harga,
@@ -33,7 +33,7 @@ function EditPerioda() {
   };
 
   const getMinyakById = async () => {
-    const response = await axios.get(`http://localhost:5000/admin/${id}`);
+    const response = await axios.get(`https://localhost:5000/admin/${id}`);
     setNama(response.data.nama);
     setPerioda(response.data.perioda);
     setHarga(response.data.harga);

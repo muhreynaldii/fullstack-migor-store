@@ -6,9 +6,11 @@ import axios from "axios";
 
 function Dashboard() {
   const [minyak, setMinyak] = useState([]);
+  const [users, setUsers] = useState([]);
 
   useEffect(() => {
     getMinyak();
+    getUsers();
   }, []);
 
   const getMinyak = async () => {
@@ -16,10 +18,24 @@ function Dashboard() {
     setMinyak(response.data);
   };
 
+  const getUsers = async () => {
+    const response = await axios.get("http://localhost:5000/users");
+    setUsers(response.data);
+  };
+
   const deleteMinyak = async (id) => {
     try {
       await axios.delete(`http://localhost:5000/admin/${id}`);
       getMinyak();
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const deleteUsers = async (id) => {
+    try {
+      await axios.delete(`http://localhost:5000/users/${id}`);
+      getUsers();
     } catch (error) {
       console.log(error);
     }
@@ -183,29 +199,36 @@ function Dashboard() {
                         </tr>
                       </thead>
                       <tbody>
-                        <tr className="border-b">
-                          <td className="whitespace-nowrap px-6 py-4 text-sm font-medium text-gray-900">
-                            1
-                          </td>
-                          <td className="whitespace-nowrap px-6 py-4 text-sm font-light text-gray-900">
-                            KTRW01
-                          </td>
-                          <td className="whitespace-nowrap px-6 py-4 text-sm font-light text-gray-900">
-                            rw232022
-                          </td>
-                          <td className="whitespace-nowrap px-6 py-4 text-sm font-light text-gray-900">
-                            Ketua RW 1
-                          </td>
-                          <td className="space-x-2 whitespace-nowrap px-6 py-4 text-sm font-light text-gray-900">
-                            <Link
-                              to={"/admin/edituser"}
-                              className="text-blue-custom"
-                            >
-                              Edit
-                            </Link>
-                            <span className="text-blue-custom">Hapus</span>
-                          </td>
-                        </tr>
+                        {users.map((users, index) => (
+                          <tr className="border-b" key={users.id}>
+                            <td className="whitespace-nowrap px-6 py-4 text-sm font-medium text-gray-900">
+                              {index + 1}
+                            </td>
+                            <td className="whitespace-nowrap px-6 py-4 text-sm font-light text-gray-900">
+                              {users.username}
+                            </td>
+                            <td className="whitespace-nowrap px-6 py-4 text-sm font-light text-gray-900">
+                              {users.password}
+                            </td>
+                            <td className="whitespace-nowrap px-6 py-4 text-sm font-light text-gray-900">
+                              {users.status}
+                            </td>
+                            <td className="space-x-2 whitespace-nowrap px-6 py-4 text-sm font-light text-gray-900">
+                              <Link
+                                to={`/admin/edituser/${users.id}`}
+                                className="text-blue-custom"
+                              >
+                                Edit
+                              </Link>
+                              <button
+                                className="text-blue-custom"
+                                onClick={() => deleteUsers(users.id)}
+                              >
+                                Hapus
+                              </button>
+                            </td>
+                          </tr>
+                        ))}
                       </tbody>
                     </table>
                   </div>

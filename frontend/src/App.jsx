@@ -36,7 +36,7 @@ export default function App() {
           <Route path="tambahperioda" element={<TambahPerioda />} />
           <Route path="tambahuser" element={<TambahUser />} />
           <Route path="editperioda/:id" element={<EditPerioda />} />
-          <Route path="edituser" element={<EditUser />} />
+          <Route path="edituser/:id" element={<EditUser />} />
           <Route path="tambahdomisili" element={<TambahDomisili />} />
         </Route>
         <Route path="/rw" element={<Rw />}>

@@ -19,7 +19,7 @@ function EditPerioda() {
   const updateMinyak = async (e) => {
     e.preventDefault();
     try {
-      await axios.patch(`https://localhost:5000/admin/${id}`, {
+      await axios.patch(`http://localhost:5000/admin/${id}`, {
         nama,
         perioda,
         harga,
@@ -31,8 +31,13 @@ function EditPerioda() {
     }
   };
 
+  const reset = (e) => {
+    e.preventDefault();
+    navigate("/admin");
+  };
+
   const getMinyakById = async () => {
-    const response = await axios.get(`https://localhost:5000/admin/${id}`);
+    const response = await axios.get(`http://localhost:5000/admin/${id}`);
     setNama(response.data.nama);
     setPerioda(response.data.perioda);
     setHarga(response.data.harga);
@@ -82,7 +87,10 @@ function EditPerioda() {
             onChange={(e) => setStok(e.target.value)}
           />
           <div className="space-x-14">
-            <button className="rounded-sm bg-orange-custom py-2 px-2 text-white">
+            <button
+              className="rounded-sm bg-orange-custom py-2 px-2 text-white"
+              onClick={reset}
+            >
               Cancel
             </button>
             <button

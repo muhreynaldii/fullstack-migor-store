@@ -29,6 +29,11 @@ function EditUser() {
     }
   };
 
+  const reset = (e) => {
+    e.preventDefault();
+    navigate("/admin");
+  };
+
   const getUsersById = async () => {
     const response = await axios.get(`http://localhost:5000/users/${id}`);
     setUsername(response.data.username);
@@ -71,7 +76,10 @@ function EditUser() {
             onChange={(e) => setStatus(e.target.value)}
           />
           <div className="space-x-14">
-            <button className="rounded-sm bg-orange-custom py-2 px-2 text-white">
+            <button
+              className="rounded-sm bg-orange-custom py-2 px-2 text-white"
+              onClick={reset}
+            >
               Cancel
             </button>
             <button

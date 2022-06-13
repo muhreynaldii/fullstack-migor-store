@@ -23,6 +23,10 @@ function TambahUser() {
     }
   };
 
+  const reset = (e) => {
+    e.preventDefault();
+    navigate("/admin");
+  };
   return (
     <>
       <Formulir judul={"Tambah User"}>
@@ -58,7 +62,10 @@ function TambahUser() {
             onChange={(e) => setStatus(e.target.value)}
           />
           <div className="space-x-14">
-            <button className="rounded-sm bg-orange-custom py-2 px-2 text-white">
+            <button
+              className="rounded-sm bg-orange-custom py-2 px-2 text-white"
+              onClick={reset}
+            >
               Cancel
             </button>
             <button

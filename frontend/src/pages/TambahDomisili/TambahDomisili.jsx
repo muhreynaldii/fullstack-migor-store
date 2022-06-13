@@ -21,6 +21,11 @@ function TambahDomisili() {
       console.log(error);
     }
   };
+
+  const reset = (e) => {
+    e.preventDefault();
+    navigate("/admin");
+  };
   return (
     <>
       <Header />
@@ -48,7 +53,10 @@ function TambahDomisili() {
             onChange={(e) => setKelurahan(e.target.value)}
           />
           <div className="space-x-14">
-            <button className="rounded-sm bg-orange-custom py-2 px-2 text-white">
+            <button
+              className="rounded-sm bg-orange-custom py-2 px-2 text-white"
+              onClick={reset}
+            >
               Cancel
             </button>
             <button

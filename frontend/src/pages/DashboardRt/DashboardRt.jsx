@@ -67,7 +67,7 @@ function DashboardRt() {
                           5 ltr
                         </td>
                         <td className="whitespace-nowrap px-6 py-4 text-sm font-light text-gray-900">
-                          ^
+                          <input type="checkbox" name="status" id="status" />
                         </td>
                       </tr>
                     </tbody>
@@ -173,11 +173,13 @@ function DashboardRt() {
             </div>
           </div>
         </div>
-        <Link to="/rt/tambahwarga">
-          <button className="my-5 self-end rounded-sm bg-blue-custom py-2 px-3 text-white">
-            Tambah
-          </button>
-        </Link>
+        <div className="flex w-full justify-end">
+          <Link to="/rt/tambahwarga">
+            <button className="my-5 self-end rounded-sm bg-blue-custom py-2 px-3 text-white">
+              Tambah
+            </button>
+          </Link>
+        </div>
       </div>
     </>
   );

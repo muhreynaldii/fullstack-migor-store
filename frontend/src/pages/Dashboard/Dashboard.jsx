@@ -3,6 +3,7 @@ import Domisili from "../../components/Domisili/Domisili";
 import Header from "../../components/Header/Header";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import Table from "../../components/Table/Table";
 
 function Dashboard() {
   const [minyak, setMinyak] = useState([]);
@@ -57,94 +58,83 @@ function Dashboard() {
           className="flex flex-col
         items-start bg-white/90 px-7 shadow-lg"
         >
-          <h1 className="text base py-5 font-bold">Daftar Minyak & Perioda</h1>
-          <div className="w-full bg-gray-custom">
-            <div className="flex flex-col">
-              <div className="overflow-x-auto sm:-mx-6 lg:-mx-8">
-                <div className="inline-block min-w-full py-2 sm:px-6 lg:px-8">
-                  <div className="overflow-hidden">
-                    <table className="min-w-full">
-                      <thead className="border-b">
-                        <tr>
-                          <th
-                            scope="col"
-                            className="px-6 py-4 text-left text-sm font-bold text-gray-900"
-                          >
-                            No
-                          </th>
-                          <th
-                            scope="col"
-                            className="px-6 py-4 text-left text-sm font-bold text-gray-900"
-                          >
-                            Nama
-                          </th>
-                          <th
-                            scope="col"
-                            className="px-6 py-4 text-left text-sm font-bold text-gray-900"
-                          >
-                            Perioda
-                          </th>
-                          <th
-                            scope="col"
-                            className="px-6 py-4 text-left text-sm font-bold text-gray-900"
-                          >
-                            Harga
-                          </th>
-                          <th
-                            scope="col"
-                            className="px-6 py-4 text-left text-sm font-bold text-gray-900"
-                          >
-                            Stok
-                          </th>
-                          <th
-                            scope="col"
-                            className="px-6 py-4 text-left text-sm font-bold text-gray-900"
-                          >
-                            Modify
-                          </th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        {minyak.map((item, index) => (
-                          <tr className="border-b" key={item.id}>
-                            <td className="whitespace-nowrap px-6 py-4 text-sm font-medium text-gray-900">
-                              {index + 1}
-                            </td>
-                            <td className="whitespace-nowrap px-6 py-4 text-sm font-light text-gray-900">
-                              {item.nama}
-                            </td>
-                            <td className="whitespace-nowrap px-6 py-4 text-sm font-light text-gray-900">
-                              {item.perioda}
-                            </td>
-                            <td className="whitespace-nowrap px-6 py-4 text-sm font-light text-gray-900">
-                              {item.harga}
-                            </td>
-                            <td className="whitespace-nowrap px-6 py-4 text-sm font-light text-gray-900">
-                              {item.stok}
-                            </td>
-                            <td className="space-x-2 whitespace-nowrap px-6 py-4 text-sm font-light text-gray-900">
-                              <Link
-                                to={`/admin/editperioda/${item.id}`}
-                                className="text-blue-custom"
-                              >
-                                Edit
-                              </Link>
-                              <button
-                                className="text-blue-custom"
-                                onClick={() => deleteMinyak(item.id)}
-                              >
-                                Hapus
-                              </button>
-                            </td>
-                          </tr>
-                        ))}
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+          <Table namatable={"Daftar Minyak & Perioda"}>
+            <thead className="border-b">
+              <tr>
+                <th
+                  scope="col"
+                  className="px-6 py-4 text-left text-sm font-bold text-gray-900"
+                >
+                  No
+                </th>
+                <th
+                  scope="col"
+                  className="px-6 py-4 text-left text-sm font-bold text-gray-900"
+                >
+                  Nama
+                </th>
+                <th
+                  scope="col"
+                  className="px-6 py-4 text-left text-sm font-bold text-gray-900"
+                >
+                  Perioda
+                </th>
+                <th
+                  scope="col"
+                  className="px-6 py-4 text-left text-sm font-bold text-gray-900"
+                >
+                  Harga
+                </th>
+                <th
+                  scope="col"
+                  className="px-6 py-4 text-left text-sm font-bold text-gray-900"
+                >
+                  Stok
+                </th>
+                <th
+                  scope="col"
+                  className="px-6 py-4 text-left text-sm font-bold text-gray-900"
+                >
+                  Modify
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {minyak.map((item, index) => (
+                <tr className="border-b" key={item.id}>
+                  <td className="whitespace-nowrap px-6 py-4 text-sm font-medium text-gray-900">
+                    {index + 1}
+                  </td>
+                  <td className="whitespace-nowrap px-6 py-4 text-sm font-light text-gray-900">
+                    {item.nama}
+                  </td>
+                  <td className="whitespace-nowrap px-6 py-4 text-sm font-light text-gray-900">
+                    {item.perioda}
+                  </td>
+                  <td className="whitespace-nowrap px-6 py-4 text-sm font-light text-gray-900">
+                    {item.harga}
+                  </td>
+                  <td className="whitespace-nowrap px-6 py-4 text-sm font-light text-gray-900">
+                    {item.stok}
+                  </td>
+                  <td className="space-x-2 whitespace-nowrap px-6 py-4 text-sm font-light text-gray-900">
+                    <Link
+                      to={`/admin/editperioda/${item.id}`}
+                      className="text-blue-custom"
+                    >
+                      Edit
+                    </Link>
+                    <button
+                      className="text-blue-custom"
+                      onClick={() => deleteMinyak(item.id)}
+                    >
+                      Hapus
+                    </button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </Table>
           <div className="flex w-full justify-end">
             <Link to="/admin/tambahperioda">
               <button className="my-5 self-end rounded-sm bg-blue-custom py-2 px-3 text-white">
@@ -157,85 +147,74 @@ function Dashboard() {
           className="container mx-auto my-10 flex
         flex-col items-start bg-white/90 px-7 shadow-lg"
         >
-          <h1 className="text base py-5 font-bold">User</h1>
-          <div className="h-[180px] w-full bg-gray-custom">
-            <div className="flex flex-col">
-              <div className="overflow-x-auto sm:-mx-6 lg:-mx-8">
-                <div className="inline-block min-w-full py-2 sm:px-6 lg:px-8">
-                  <div className="overflow-hidden">
-                    <table className="min-w-full">
-                      <thead className="border-b">
-                        <tr>
-                          <th
-                            scope="col"
-                            className="px-6 py-4 text-left text-sm font-bold text-gray-900"
-                          >
-                            No
-                          </th>
-                          <th
-                            scope="col"
-                            className="px-6 py-4 text-left text-sm font-bold text-gray-900"
-                          >
-                            Id
-                          </th>
-                          <th
-                            scope="col"
-                            className="px-6 py-4 text-left text-sm font-bold text-gray-900"
-                          >
-                            Password
-                          </th>
-                          <th
-                            scope="col"
-                            className="px-6 py-4 text-left text-sm font-bold text-gray-900"
-                          >
-                            Status
-                          </th>
-                          <th
-                            scope="col"
-                            className="px-6 py-4 text-left text-sm font-bold text-gray-900"
-                          >
-                            Modify
-                          </th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        {users.map((users, index) => (
-                          <tr className="border-b" key={users.id}>
-                            <td className="whitespace-nowrap px-6 py-4 text-sm font-medium text-gray-900">
-                              {index + 1}
-                            </td>
-                            <td className="whitespace-nowrap px-6 py-4 text-sm font-light text-gray-900">
-                              {users.username}
-                            </td>
-                            <td className="whitespace-nowrap px-6 py-4 text-sm font-light text-gray-900">
-                              {users.password}
-                            </td>
-                            <td className="whitespace-nowrap px-6 py-4 text-sm font-light text-gray-900">
-                              {users.status}
-                            </td>
-                            <td className="space-x-2 whitespace-nowrap px-6 py-4 text-sm font-light text-gray-900">
-                              <Link
-                                to={`/admin/edituser/${users.id}`}
-                                className="text-blue-custom"
-                              >
-                                Edit
-                              </Link>
-                              <button
-                                className="text-blue-custom"
-                                onClick={() => deleteUsers(users.id)}
-                              >
-                                Hapus
-                              </button>
-                            </td>
-                          </tr>
-                        ))}
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+          <Table namatable={"User"}>
+            <thead className="border-b">
+              <tr>
+                <th
+                  scope="col"
+                  className="px-6 py-4 text-left text-sm font-bold text-gray-900"
+                >
+                  No
+                </th>
+                <th
+                  scope="col"
+                  className="px-6 py-4 text-left text-sm font-bold text-gray-900"
+                >
+                  Username
+                </th>
+                <th
+                  scope="col"
+                  className="px-6 py-4 text-left text-sm font-bold text-gray-900"
+                >
+                  Password
+                </th>
+                <th
+                  scope="col"
+                  className="px-6 py-4 text-left text-sm font-bold text-gray-900"
+                >
+                  Status
+                </th>
+                <th
+                  scope="col"
+                  className="px-6 py-4 text-left text-sm font-bold text-gray-900"
+                >
+                  Modify
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {users.map((users, index) => (
+                <tr className="border-b" key={users.id}>
+                  <td className="whitespace-nowrap px-6 py-4 text-sm font-medium text-gray-900">
+                    {index + 1}
+                  </td>
+                  <td className="whitespace-nowrap px-6 py-4 text-sm font-light text-gray-900">
+                    {users.username}
+                  </td>
+                  <td className="whitespace-nowrap px-6 py-4 text-sm font-light text-gray-900">
+                    {users.password}
+                  </td>
+                  <td className="whitespace-nowrap px-6 py-4 text-sm font-light text-gray-900">
+                    {users.status}
+                  </td>
+                  <td className="space-x-2 whitespace-nowrap px-6 py-4 text-sm font-light text-gray-900">
+                    <Link
+                      to={`/admin/edituser/${users.id}`}
+                      className="text-blue-custom"
+                    >
+                      Edit
+                    </Link>
+                    <button
+                      className="text-blue-custom"
+                      onClick={() => deleteUsers(users.id)}
+                    >
+                      Hapus
+                    </button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </Table>
           <div className="flex w-full justify-end">
             <Link to="/admin/tambahuser">
               <button className="my-5 self-end rounded-sm bg-blue-custom py-2 px-3 text-white">

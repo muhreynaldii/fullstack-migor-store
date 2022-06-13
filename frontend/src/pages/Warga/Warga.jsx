@@ -62,7 +62,7 @@ function Warga() {
             <span className="text-center text-red-600">Rp. 25.000</span>
           </div>
           <div className="flex w-1/6 flex-col items-center self-center">
-            <div className="h-[23px] w-[200px] bg-gray-custom">
+            <div className="h-[23px] w-[200px]">
               <Perioda />
             </div>
             <div className="my-10 flex space-x-4">

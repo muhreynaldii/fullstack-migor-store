@@ -46,7 +46,7 @@ function DataKepalaDinper() {
           className="flex flex-col
         items-start bg-white/90 px-7 shadow-lg"
         >
-          <div className="h-[180px] w-full bg-white">
+          <div className="mb-10 w-full bg-white">
             <Perioda />
             <Bar data={data} />
           </div>

@@ -171,11 +171,13 @@ function RwTransaksi() {
             </div>
           </div>
         </div>
-        <Link to="/rw/tambahrt">
-          <button className="my-5 self-end rounded-sm bg-blue-custom py-2 px-3 text-white">
-            Tambah
-          </button>
-        </Link>
+        <div className="flex w-full justify-end">
+          <Link to="/rw/tambahrt">
+            <button className="my-5 self-end rounded-sm bg-blue-custom py-2 px-3 text-white">
+              Tambah
+            </button>
+          </Link>
+        </div>
       </div>
     </>
   );

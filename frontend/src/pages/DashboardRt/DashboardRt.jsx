@@ -90,7 +90,7 @@ function DashboardRt() {
         className="flex flex-col
         items-start bg-white/90 px-7 shadow-lg"
       >
-        <h1 className="text base py-5 font-bold">Daftar Minyak & Perioda</h1>
+        <h1 className="text base py-5 font-bold">Daftar Warga</h1>
         <div className="w-full bg-gray-custom">
           <div className="flex flex-col">
             <div className="overflow-x-auto sm:-mx-6 lg:-mx-8">

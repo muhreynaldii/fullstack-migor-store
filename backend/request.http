@@ -84,3 +84,32 @@ Content-Type: application/json
 
 ###
 DELETE http://localhost:5000/domisili/1
+
+###
+GET http://localhost:5000/role
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsIm5hbWEiOiJSZXkiLCJ1c2VybmFtZSI6InJleW5hbGRpIiwiaWF0IjoxNjU1MTkwNDk5LCJleHAiOjE2NTUxOTA1MTl9.7qvqIp0rQ0LgFsg-ObYcWKukh1YJdjH72wG3eTkb4nA
+
+###
+POST http://localhost:5000/role
+Content-Type: application/json
+
+{
+    "nama":"Rey",
+    "username":"reynaldi",
+    "password" :"12345",
+    "confPassword" :"12345"
+
+}
+
+###
+POST http://localhost:5000/login
+Content-Type: application/json
+
+{
+    "username":"reynaldi",
+    "password" :"12345"
+}
+###
+GET http://localhost:5000/token
+###
+DELETE http://localhost:5000/logout

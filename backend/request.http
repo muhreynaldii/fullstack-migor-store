@@ -87,7 +87,7 @@ DELETE http://localhost:5000/domisili/1
 
 ###
 GET http://localhost:5000/role
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsIm5hbWEiOiJSZXkiLCJ1c2VybmFtZSI6InJleW5hbGRpIiwiaWF0IjoxNjU1MTkwNDk5LCJleHAiOjE2NTUxOTA1MTl9.7qvqIp0rQ0LgFsg-ObYcWKukh1YJdjH72wG3eTkb4nA
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsIm5hbWEiOiJSZXkiLCJ1c2VybmFtZSI6ImFrdSIsImlhdCI6MTY1NTE5Mzc2NiwiZXhwIjoxNjU1MTkzNzg2fQ.MuMRBODscfPO7vT3nmYOwS28lALSqWQNy8kee1t6i-U
 
 ###
 POST http://localhost:5000/role
@@ -95,7 +95,7 @@ Content-Type: application/json
 
 {
     "nama":"Rey",
-    "username":"reynaldi",
+    "username":"aku",
     "password" :"12345",
     "confPassword" :"12345"
 
@@ -106,7 +106,7 @@ POST http://localhost:5000/login
 Content-Type: application/json
 
 {
-    "username":"reynaldi",
+    "username":"aku",
     "password" :"12345"
 }
 ###

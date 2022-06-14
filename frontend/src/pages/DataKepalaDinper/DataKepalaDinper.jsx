@@ -8,16 +8,10 @@ import { Chart, registerables } from "chart.js";
 Chart.register(...registerables);
 
 export const data = {
-  labels: ["January", "February", "March", "April", "May"],
+  labels: ["RW01", "RW02", "RW03", "RW04", "RW05"],
   datasets: [
     {
-      label: "Dataset 1",
-      data: [12, 19, 3, 5, 2],
-      borderColor: "rgb(255, 99, 132)",
-      backgroundColor: "rgba(255, 99, 132, 0.5)",
-    },
-    {
-      label: "Dataset 2",
+      label: "Jumlah Minyak (Liter)",
       data: [21, 10, 7, 8, 4],
       borderColor: "rgb(53, 162, 235)",
       backgroundColor: "rgba(53, 162, 235, 0.5)",
@@ -48,6 +42,9 @@ function DataKepalaDinper() {
         >
           <div className="mb-10 w-full bg-white">
             <Perioda />
+            <h1 className="text-center text-2xl font-bold">
+              Laporan Penjualan Migor
+            </h1>
             <Bar data={data} />
           </div>
         </div>
